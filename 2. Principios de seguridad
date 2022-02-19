@@ -1,0 +1,58 @@
+Aplicar el principio del mínimo privilegio:
+- Conceder el acceso necesario 
+- Aplicar la separación de funciones 
+- Evitar las credenciales de larga duración 
+- Habilitar el MFA 
+
+Objetivo:
+
+- Reducir el impacto de un acceso comprometido
+
+Habilitar la trazabilidad 
+- Supervisar los accesos, las acciones y los cambios 
+- Aprovechar y analizar los registros, los logs y las métricas 
+- Auditar los recursos de la nube 
+
+Objetivo:
+
+auditar continuamente los elementos dentro de la nube
+
+Asegure todas las capas 
+- Adopte un enfoque de defensa en profundidad 
+- Utilice diferentes servicios de AWS 
+
+Objetivo:
+
+- Verificar y bloquear en cada capa de la pila cualquier accion malintencionada 
+
+Automatizar la seguridad 
+- Automatizar las tareas rutinarias de seguridad con APIs 
+- Convertir la infraestructura en código 
+
+Objetivo:
+
+Evitar el error humano 
+
+Proteja los datos en tránsito y en reposo 
+- Utilice el cifrado y los controles de acceso 
+- Clasifique sus datos con el etiquetado 
+- Aproveche las conexiones VPN y TLS 
+
+Objetivo:
+
+-  Evitar que los datos sensibles son exfiltrados puedan ser leidos
+
+Prepárese para los eventos de seguridad 
+- Mitigue el impacto de los incidentes de seguridad 
+- Cree procesos para aislar los incidentes y restaurar las operaciones 
+
+Objetivo:
+
+- De manera automatica, identificar y tratar el incidentes de seguridad
+- Ayudar a identificar quien inicio el incidente 
+
+Minimizar la superficie de ataque 
+- Estar preparado para escalar y absorber el ataque 
+- Salvaguardar los recursos expuestos 
+- AWS shield
+
