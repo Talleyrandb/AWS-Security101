@@ -1,0 +1,21 @@
+Modelo de seguridad compartida 
+Responsabilidad de AWS en relación con la "seguridad de la nube": 
+AWS es responsable de proteger la infraestructura que ejecuta todos los servicios provistos en la nube de AWS. Esta infraestructura está conformada por el hardware, el software, las redes y las instalaciones que ejecutan los servicios de la nube de AWS.
+
+Responsabilidad del cliente en relación con la "seguridad en la nube": 
+la responsabilidad del cliente estará determinada por los servicios de la nube de AWS que el cliente seleccione. Esto determina el alcance del trabajo de configuración a cargo del cliente como parte de sus responsabilidades de seguridad. Por ejemplo, un servicio como Amazon Elastic Compute Cloud (Amazon EC2) se clasifica como Infraestructura como servicio (IaaS) y, como tal, requiere que el cliente realice todas las tareas de administración y configuración de seguridad necesarias. Los clientes que implementan una instancia de Amazon EC2 son responsables de la administración del sistema operativo huésped (incluidos los parches de seguridad y las actualizaciones), de cualquier utilidad o software de aplicaciones que el cliente haya instalado en las instancias y de la configuración del firewall provisto por AWS (llamado security group) en cada instancia. En el caso de los servicios extraídos, como Amazon S3 y Amazon DynamoDB, AWS maneja la capa de infraestructura, el sistema operativo y las plataformas, mientras que los clientes acceden a los puntos de enlace para recuperar y almacenar los datos. Los clientes son responsables de administrar sus datos (incluidas las opciones de cifrado), clasificar sus recursos y utilizar las herramientas como AWS IAM (Identity and Access Management) para solicitar los permisos correspondientes.
+Este modelo de responsabilidad compartida entre los clientes y AWS también abarca los controles de TI. De la misma forma que AWS y sus clientes comparten la responsabilidad del funcionamiento del entorno de TI, también comparten la administración, el funcionamiento y la verificación de los controles de TI. AWS puede ayudar a aliviar la carga que supone para los clientes operar los controles, para lo que administra los controles asociados con la infraestructura física implementada en el entorno de AWS de cuya administración se encargaba anteriormente el cliente. Dado que la implementación de cada cliente se realiza de manera diferente en AWS, los clientes tienen la oportunidad de migrar a AWS la administración de determinados controles de TI para obtener un (nuevo) entorno de control distribuido. Los clientes pueden usar la documentación de conformidad y control de AWS disponible para ejecutar sus procedimientos de verificación y evaluación de controles según sea necesario
+
+Controles heredados: controles que un cliente hereda totalmente de AWS.
+
+    Controles físicos y de entorno
+
+Controles compartidos: controles que se aplican tanto a la capa de la infraestructura como a las capas de los clientes, pero en contextos o perspectivas completamente independientes. En un control compartido, AWS suministra los requisitos para la infraestructura y el cliente debe proveer su propia implementación de controles en el uso que haga de los servicios de AWS. Entre los ejemplos se incluyen:
+
+    Administración de parches: AWS es responsable de implementar parches y de corregir imperfecciones en el interior de la infraestructura, pero los clientes son responsables de implementar parches en sus aplicaciones y sistemas operativos huésped.
+    Administración de configuración: AWS mantiene la configuración de sus dispositivos de infraestructura, pero el cliente es responsable de configurar sus aplicaciones, bases de datos y sistemas operativos huésped.
+    Información y formación técnica: AWS capacita a los empleados de AWS, pero el cliente debe capacitar a sus propios empleados.
+
+Controles específicos del cliente: controles que son de absoluta responsabilidad del cliente en función de la aplicación que implementa dentro de los servicios de AWS. Entre los ejemplos se incluyen:
+
+    Seguridad de zona o protección de comunicaciones y servicios, que podrían necesitar que el cliente direccione o separe en zonas datos en entornos de seguridad específicos.
