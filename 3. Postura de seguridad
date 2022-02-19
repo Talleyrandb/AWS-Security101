@@ -1,0 +1,45 @@
+Autenticación 
+- ¿Quien eres tu? 
+
+Controlar el acceso a sus recursos de AWS para usuarios, grupos y roles 
+- Nombre de usuario y contraseña al acceder a la consola de administración de AWS o el directorio activo
+- Claves secretas y de acceso al utilizar la CLI de AWS o los SDK de AWS, o al realizar llamadas directas a la API
+
+Autorización
+- ¿Que puedo y que no puedo hacer?
+
+- Usuario IAM -> Credenciales de autenticacion -> Autotización (Politicas asignadas), Acciones o operaciones -> sobre Recursos -> efecto de permitir o denegar las acciones
+
+Monitoreo 
+-¿Cuanto hiciste?
+
+Amazon CloudWatch - Amazon EventBridge
+Supervisa las métricas integradas y personalizadas de AWS en tiempo real y recopila registros de servicios y aplicaciones 
+- Los eventos de CloudWatch y EventBridge pueden utilizarse para responder a los cambios operativos y tomar medidas correctivas 
+- Las alarmas de CloudWatch y EventBridge pueden utilizarse para enviar notificaciones y realizar cambios automáticamente 
+
+Auditoria
+-¿qué hiciste realmente?
+
+coultrail identificar que acciones los usuarios realizan en la base de datos o en un bucked de S3
+
+Encriptación 
+¿Están sus datos encriptados en reposo y en tránsito?
+
+¿Donde se guardan las llaves?
+¿Donde la llave fue utilizada?
+¿Quien gestiona las llaves?
+
+Encriptacion al lado del cliente = Usted encripta los datos antes de ser enviados a AWS
+
+Encriptación al lado del servidor = AWS encripta los datos en su nombre despues de que el servicio recibe los datos 
+
+Servicio de administración de claves y cifrado de datos centralizado y seguro 
+- Gestione el cifrado de datos para otros servicios de AWS 
+- Cifre los datos localmente dentro de sus aplicaciones 
+- Determine quién puede utilizar las claves con políticas de claves 
+- Integrado con AWS CloudTrail para una auditoría incorporada 
+
+- Autenticar las comunicaciones de red con TLS o IPsec 
+- Gestionar los certificados SSL/TLS mediante AWS Certificate Manager 
+- Imponer el cifrado en tránsito permitiendo únicamente el tráfico HTTPS 
