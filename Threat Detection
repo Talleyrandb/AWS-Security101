@@ -1,0 +1,203 @@
+# Amazon GuardDuty #
+
+Amazon ^^GuardDuty^^ es un servicio diseñado para identificar actividades sospechosas y potencialmente maliciosas dentro de las cuentas y cargas de trabajo de AWS. Utiliza una combinación de inteligencia de amenazas, listas de direcciones IP maliciosas, modelos de aprendizaje automático (^^Machine Learning^^) y análisis de registros para detectar comportamientos anómalos. Este servicio es completamente gestionado por AWS.
+
+
+## Algoritmos de Aprendizaje Automático
+### Detección de Anomalías
+GuardDuty utiliza algoritmos de aprendizaje automático para reconocer patrones normales de comportamiento dentro del entorno AWS. Cuando se detectan desviaciones significativas de estos patrones, el sistema genera alertas. Por ejemplo, puede identificar accesos desde ubicaciones geográficas inusuales o llamadas a APIs que no siguen el comportamiento esperado. Esto es crucial para identificar amenazas emergentes que podrían pasar desapercibidas por métodos tradicionales basados en firmas.
+
+### Análisis Predictivo
+Los modelos de ML personalizados permiten a GuardDuty realizar un análisis predictivo sobre posibles amenazas. Esto incluye la identificación de patrones que podrían indicar un ataque inminente, como intentos repetidos de inicio de sesión fallidos o el uso sospechoso de credenciales.cLa capacidad del sistema para aprender y adaptarse a nuevos datos lo hace más eficaz en la detección de amenazas desconocidas.
+
+### Reducción de Falsos Positivos
+Uno de los desafíos en la detección de amenazas es el alto número de falsos positivos. GuardDuty aborda este problema mediante una mejor comprensión del contexto en el que se producen las actividades. Al analizar grandes volúmenes de datos y correlacionar eventos, el sistema puede filtrar alertas irrelevantes, permitiendo que los equipos de seguridad se concentren en las amenazas reales.
+
+### Respuesta Automatizada
+GuardDuty no solo identifica amenazas, sino que también facilita una respuesta rápida. Cuando se detecta una actividad sospechosa, el sistema puede automatizar acciones como aislar instancias comprometidas o bloquear tráfico malicioso. Esto reduce significativamente el tiempo necesario para contener y neutralizar las amenazas.
+
+### Escalabilidad y Administración
+El servicio está diseñado para ser escalable y totalmente administrado, lo que significa que puede adaptarse automáticamente a los niveles cambiantes de actividad en las cuentas y cargas de trabajo sin requerir intervención manual. Esto permite a las organizaciones mantener una protección efectiva sin importar su tamaño o complejidad.
+
+## Monitoreo 
+Amazon GuardDuty utiliza una variedad de registros y fuentes de datos para identificar actividades maliciosas y comportamientos anómalos en entornos de AWS.
+
+### Registros de VPC Flow Logs
+Los VPC Flow Logs capturan información sobre el tráfico IP que entra y sale de las interfaces de red en una VPC. GuardDuty analiza estos registros para detectar patrones inusuales, como conexiones a direcciones IP sospechosas o tráfico hacia y desde regiones no autorizadas. Esto ayuda a identificar posibles intentos de intrusión o exfiltración de datos.
+
+### Registros de AWS CloudTrail
+Los registros de AWS CloudTrail proporcionan un historial detallado de las llamadas a la API realizadas en la cuenta, incluyendo quién realizó la llamada y desde qué dirección IP. GuardDuty utiliza esta información para detectar actividades inusuales, como cambios inesperados en la configuración o accesos no autorizados a recursos críticos. Esto permite identificar credenciales comprometidas y actividades potencialmente maliciosas.
+
+### Registros de Route 53
+Los registros DNS generados por Amazon Route 53 son analizados por GuardDuty para identificar consultas a dominios maliciosos o sospechosos. Esto incluye la detección de patrones anómalos en las consultas DNS que podrían indicar un ataque, como el uso de malware que intenta comunicarse con servidores controlados por atacantes.
+
+### Registros de Amazon S3
+GuardDuty monitorea los eventos de acceso a Amazon S3, analizando operaciones como GetObject, PutObject y DeleteObject. Esto permite detectar accesos no autorizados a buckets o cambios en configuraciones que podrían resultar en vulnerabilidades, como la desactivación del bloqueo de acceso público.
+
+### Registros de EBS Volumes
+Para los volúmenes de Amazon EBS, GuardDuty puede escanear en busca de malware cuando detecta actividad sospechosa en instancias asociadas. Esto ayuda a identificar infecciones por ransomware u otros tipos de malware que podrían comprometer los datos almacenados.
+
+### Registros de EKS Audit Logs
+Los registros de auditoría de Amazon EKS son analizados para detectar actividades inusuales dentro del clúster Kubernetes. GuardDuty identifica patrones que podrían indicar intentos maliciosos, como accesos no autorizados o configuraciones inseguras en los pods
+
+### Registros de RDS y Amazon Aurora
+En el caso de Amazon RDS y Amazon Aurora, GuardDuty utiliza modelos de machine learning para identificar comportamientos anómalos, como intentos fallidos repetidos de inicio de sesión (posibles ataques por fuerza bruta) o accesos desde ubicaciones geográficas inusuales. Esto ayuda a proteger las bases de datos contra accesos no autorizados y ataques dirigidos.
+
+### Registros de funciones lambda 
+Al activar la Protección Lambda, GuardDuty comienza a supervisar los registros de actividad de red generados al invocar funciones Lambda GuardDuty analiza todos los registros de flujo generados por las funciones Lambda, independientemente de si estas utilizan o no una red VPC y Si se identifica tráfico inusual que podría indicar un comportamiento malicioso, como la ejecución no autorizada de código o comunicaciones con servidores maliciosos, GuardDuty genera hallazgos.
+
+## Hallazgos en GiardDuty 
+
+La gestión de hallazgos en GuardDuty se basa en una estructura de nombres que permite clasificar y entender mejor los diferentes tipos de amenazas detectadas.
+
+Estructura de Nombres para Hallazgos
+Los hallazgos generados por GuardDuty están organizados en una estructura que incluye varios elementos clave:
+
+    1. __Tipo de Hallazgo__: Cada hallazgo tiene un tipo específico que indica la naturaleza de la amenaza detectada
+        UnauthorizedAccess:EC2/SSHBruteForce, CryptoCurrency:EC2/BitcoinTool.B!DNS
+        Stealth:IAMUser/CloudTrailLoggingDisabled, Policy:IAMUser/RootCredentialUsage
+        CredentialAccess:Kubernetes/MaliciousIPCaller
+        Execution:EC2/SuspiciousFile, Execution:ECS/SuspiciousFile
+        CredentialAccess:RDS/AnomalousBehavior.SuccessfulLogin
+        Policy:S3/AccountBlockPublicAccessDisabled, PenTest:S3/KaliLinux
+        
+    2. Severidad: Los hallazgos se clasifican según su severidad, que puede ser alta, media o baja. Esto ayuda a priorizar la respuesta a las amenazas.
+        Bajo: Actividad sospechosa que no ha comprometido recursos.
+        Medio: Actividad inusual que podría requerir atención.
+        Alto: Indica un compromiso activo o intento serio de acceso no autorizado
+    
+    3. Detalles del Hallazgo: Cada hallazgo incluye información detallada, como la hora del evento, el recurso afectado y el contexto adicional necesario para entender la amenaza.
+
+    4. Identificadores Únicos: Cada hallazgo tiene un identificador único que permite su seguimiento y gestión a lo largo del tiempo.
+
+    5. Etiquetas y Metadatos: Los hallazgos pueden incluir etiquetas y metadatos adicionales que facilitan su clasificación y búsqueda dentro del sistema.
+
+Ejemplo para configurar Amazon GuardDuty de manera que pueda identificar un hallazgo de acceso no autorizado a una instancia EC2
+
+```json
+{
+  "GuardDutyConfiguration": {
+    "DetectorId": "arn:aws:guardduty:REGION:ACCOUNT_ID:detector/DETECTOR_ID",
+    "FindingType": "UnauthorizedAccess:EC2/SSHBruteForce",
+    "Severity": {
+      "Low": 0,
+      "Medium": 5,
+      "High": 10
+    },
+    "InputTransformer": {
+      "InputPathsMap": {
+        "severity": "$.detail.severity",
+        "Finding_ID": "$.detail.id",
+        "Finding_Type": "$.detail.type",
+        "region": "$.region",
+        "Finding_description": "$.detail.description"
+      },
+      "InputTemplate": "{ \"Severity\": <severity>, \"FindingID\": <Finding_ID>, \"Type\": <Finding_Type>, \"Region\": <region>, \"Description\": <Finding_description> }"
+    },
+    "NotificationChannel": {
+      "SnsTopicArn": "arn:aws:sns:REGION:ACCOUNT_ID:YourSNSTopic",
+      "MessageFormat": "JSON"
+    }
+  }
+}
+```json
+
+Ejemplo para configurar Amazon GuardDuty de manera que pueda identificar una prueba de intrusion (pentesting) no autorizada a un bucket S3
+
+```json
+{
+  "schemaVersion": "2.0",
+  "accountId": "123456789012",
+  "region": "us-west-2",
+  "partition": "aws",
+  "id": "example-finding-id",
+  "type": "Recon:EC2/PortProbeUnprotectedPort",
+  "resource": {
+    "type": "S3Bucket",
+    "id": "arn:aws:s3:::example-bucket"
+  },
+  "severity": 5,
+  "title": "[SAMPLE] Acceso no autorizado a S3",
+  "description": "Se ha detectado un intento de acceso no autorizado a un bucket S3.",
+  "createdAt": "2024-10-27T12:00:00Z",
+  "updatedAt": "2024-10-27T12:00:00Z",
+  "source": {
+    "serviceName": "guardduty",
+    "serviceType": "AWS"
+  },
+  "additionalInfo": {
+    "sample": true,
+    "threats": [
+      {
+        "type": "UnauthorizedAccess",
+        "description": "Acceso no autorizado detectado en el bucket S3."
+      }
+    ]
+  }
+}
+```json
+
+Ejemplo para configurar Amazon GuardDuty de manera que pueda identificar una llamada maliciona a un cluster de Kubernetes
+
+```json
+{
+  "GuardDutyConfiguration": {
+    "Service": "GuardDuty",
+    "Status": "Enabled",
+    "Findings": {
+      "Type": "KubernetesClusterECSCluster",
+      "Severity": "High",
+      "Description": "Detecta llamadas maliciosas a un clúster de Kubernetes.",
+      "Action": {
+        "Type": "NETWORK_CONNECTION",
+        "Details": {
+          "SourceIp": "192.0.2.1",
+          "DestinationIp": "203.0.113.5",
+          "Protocol": "TCP",
+          "Port": 443
+        }
+      },
+      "ThreatName": "Malicious API Call",
+      "Timestamp": "2024-10-27T12:00:00Z"
+    },
+    "ResponseActions": {
+      "AutomatedResponse": true,
+      "IntegrationWithCloudWatchEvents": true,
+      "Notification": {
+        "SNSArn": "arn:aws:sns:us-east-1:123456789012:GuardDutyAlerts"
+      }
+    }
+  }
+}
+```json
+
+
+### Listas de IP de Confianza (Trusted IP List)
+Las listas de IP de confianza son conjuntos de direcciones IP que usted ha identificado como seguras para la comunicación con su infraestructura y aplicaciones en AWS. A continuación se detallan sus características:
+
+    Propósito: Evitar que GuardDuty genere hallazgos para direcciones IP que se consideran seguras. Esto significa que cualquier actividad proveniente de estas IP no será registrada como sospechosa.
+    Limitaciones: Puede incluir un máximo de 2,000 direcciones IP o rangos CIDR en una sola lista. Solo se permite una lista de IP de confianza por cuenta y región en un momento dado.
+    Aplicación: Las listas se aplican a todos los registros de flujo de VPC y hallazgos de CloudTrail, pero no afectan los hallazgos basados en registros DNS .
+
+
+### Listas de Amenazas (Threat IP List)
+Las listas de amenazas están compuestas por direcciones IP conocidas por estar asociadas a actividades maliciosas, como malware o spam. Aquí están sus características clave:
+
+    Propósito: GuardDuty genera hallazgos basados en las actividades que involucran estas direcciones IP. Si una dirección IP en la lista realiza acciones sospechosas, GuardDuty emitirá una alerta.
+    Limitaciones: Se pueden incluir hasta 250,000 direcciones IP o rangos CIDR en una sola lista, y puede cargar hasta seis listas de amenazas por cuenta y región.
+    Fuentes Externas: Las listas pueden ser obtenidas a través de proveedores externos o creadas específicamente para su organización. Por ejemplo, listas como [FireHOL](https://iplists.firehol.org/) y [Emerging](https://iplists.firehol.org/?ipset=et_block) Threats son populares para este propósito.
+    Formato y Actualización: Para registrar una lista de amenazas, debe subir los datos en un formato específico a un bucket S3 y activar el procesamiento a través de la consola GuardDuty o AWS CLI. Es recomendable automatizar la actualización debido a la frecuencia con la que cambian estas listas.
+
+### Reglas de Supresión (Suppression Rules)
+Las reglas de supresión en Amazon GuardDuty son herramientas que permiten a los usuarios gestionar y filtrar los hallazgos de seguridad generados por el servicio. Estas reglas son especialmente útiles para archivar automáticamente hallazgos que se consideran de bajo valor, falsos positivos o amenazas que no requieren acción inmediata, lo que ayuda a reducir el "ruido" en las alertas y facilita la identificación de amenazas críticas.
+
+####Creación y Configuración de Reglas de Supresión
+
+    Definición de Criterios: Cada regla de supresión se basa en un conjunto de criterios que consiste en un atributo de filtro emparejado con un valor específico. Por ejemplo, se puede utilizar el tipo de hallazgo como criterio para archivar automáticamente ciertos resultados.
+    Tipos de Hallazgos: Las reglas pueden configurarse para suprimir tipos completos de hallazgos o para definir criterios más específicos que solo supriman instancias particulares dentro de un tipo. Esto permite una personalización detallada según las necesidades del entorno.
+    Proceso Automático: Una vez que se establece una regla, todos los nuevos hallazgos que coincidan con los criterios definidos se archivan automáticamente mientras la regla esté activa. Estos hallazgos archivados no se envían a otros servicios como AWS Security Hub o Amazon EventBridge, lo que reduce la cantidad de alertas innecesarias.
+
+####Visualización y Gestión de Hallazgos Suprimidos
+
+    Acceso a Hallazgos Archivados: Los hallazgos suprimidos se almacenan durante un período de 90 días y pueden ser revisados en cualquier momento. Para visualizarlos, se puede acceder a la consola de GuardDuty y seleccionar la opción "Archivado" o utilizar la API ListFindings con el criterio service.archived establecido como verdadero.
+    Edición y Eliminación: Las reglas de supresión son editables en cualquier momento, lo que permite a los administradores ajustar los criterios según cambien las condiciones del entorno o se identifiquen nuevos falsos positivos
