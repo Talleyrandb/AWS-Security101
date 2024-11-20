@@ -38,25 +38,21 @@ The solution involves a Lambda function that utilizes CloudWatch rules to monito
 1. Time-Based Events: The Lambda function checks for all certificates with a DaysToExpiry metric when a time-based event is triggered.
 2. Specific Certificate Events: When an event related to a specific certificate occurs, the function focuses on that single certificate.
 In both scenarios, the findings are logged to Security Hub, and notifications are sent out via SNS (Simple Notification Service). While notifications can be sent as basic emails, integrating them into ticketing or alerting systems is recommended for better incident management.
-Option 1: CloudWatch Event for Single Certificate
-
-    A CloudWatch event from ACM signals that a certificate is approaching expiration.
-    The workflow is as follows:
-    1. CloudWatch receives the event and invokes the Lambda function.
-    2. The function examines the specified certificate.
-    3. Findings are logged in Security Hub.
-    4. A notification with expiration details is published to an SNS topic.
-    5. SNS then notifies subscribers (commonly via email).
-
-Option 2: Scheduled CloudWatch Rule for All Certificates
+### Option 1: CloudWatch Event for Single Certificate
+A CloudWatch event from ACM signals that a certificate is approaching expiration.
+The workflow is as follows:
+1. CloudWatch receives the event and invokes the Lambda function.
+2. The function examines the specified certificate.
+3. Findings are logged in Security Hub.
+4. A notification with expiration details is published to an SNS topic.
+5. SNS then notifies subscribers (commonly via email).
+### Option 2: Scheduled CloudWatch Rule for All Certificates
 This option allows for a scheduled review of all expiring certificates in ACM. The workflow includes:
-
 1. CloudWatch runs the rule on a timer and invokes the Lambda function.
 2. The function identifies all certificates with a DaysToExpiry metric.
 3. All expiring certificates are logged as findings in Security Hub.
 4. A notification detailing all expirations is published to an SNS topic.
 5. SNS sends out notifications to subscribers.
-
 This structured approach ensures timely alerts and facilitates effective management of SSL certificate renewals.
 
 - https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn
