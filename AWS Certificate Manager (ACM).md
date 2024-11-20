@@ -24,13 +24,13 @@ AWS Certificate Manager (ACM) plays a crucial role in maintaining trust and prov
 - Consequences of Expiration: An expired certificate can lead to website or application unavailability, resulting in operational and business disruptions.
 - Notification Challenges: Organizations using third-party certificates may face challenges receiving notifications about expirations, especially if those certificates are outside of the AWS account where notifications are configured.
 - Regional Monitoring: Security Hub can monitor certificate expirations, but it operates at a regional level, making it cumbersome to track across multiple regions. The solution discussed consolidates notifications into a single region's findings.
-###Monitoring Options
-- ACM Certificate Expiration Event:
-        - Utilizes Amazon EventBridge to trigger a Lambda function when a certificate is nearing expiration.
-        - The Lambda function publishes findings to Security Hub and sends notifications via SNS for email alerts or IT service management (ITSM) systems.
-- DaysToExpiry Metric:
-        A newly launched metric that allows scheduling batch searches for expiring certificates.
-        It logs all findings and sends a consolidated SNS notification for all expiring certificates.
+### Monitoring Options
+- - ACM Certificate Expiration Event:
+- Utilizes Amazon EventBridge to trigger a Lambda function when a certificate is nearing expiration.
+- The Lambda function publishes findings to Security Hub and sends notifications via SNS for email alerts or IT service management (ITSM) systems.
+- - DaysToExpiry Metric:
+- A newly launched metric that allows scheduling batch searches for expiring certificates.
+- It logs all findings and sends a consolidated SNS notification for all expiring certificates.
 
 These monitoring solutions enhance the ability to manage certificate expirations effectively, ensuring continuous security for applications and infrastructure.
 
