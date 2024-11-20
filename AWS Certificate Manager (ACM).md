@@ -18,10 +18,10 @@ Main Features of AWS Certificate Manager
 7. Export Capabilities: While ACM manages public certificates primarily within AWS services, users can export private certificates for use outside of AWS environments.
 8. Support for Wildcard Certificates: Wildcard certificates can secure multiple subdomains under a single domain name, providing flexibility in managing domain security.
 
-https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn
-https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
-https://aws.amazon.com/certificate-manager/?nc1=h_ls
-https://docs.aws.amazon.com/acm/latest/userguide/gs.html
-https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/
-https://tutorialsdojo.com/aws-certificate-manager/
-https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/
+- https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn
+- https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
+- https://aws.amazon.com/certificate-manager/?nc1=h_ls
+- https://docs.aws.amazon.com/acm/latest/userguide/gs.html
+- https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/
+- https://tutorialsdojo.com/aws-certificate-manager/
+- https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/
