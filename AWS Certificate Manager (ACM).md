@@ -41,7 +41,7 @@ In both scenarios, the findings are logged to Security Hub, and notifications ar
 ### Option 1: CloudWatch Event for Single Certificate
 A CloudWatch event from ACM signals that a certificate is approaching expiration.
 The workflow is as follows:
-https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/05/02/Monitor-expirations-ACM-1.png
+![alt text](https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/05/02/Monitor-expirations-ACM-1.png)
 1. CloudWatch receives the event and invokes the Lambda function.
 2. The function examines the specified certificate.
 3. Findings are logged in Security Hub.
@@ -49,7 +49,7 @@ https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2
 5. SNS then notifies subscribers (commonly via email).
 ### Option 2: Scheduled CloudWatch Rule for All Certificates
 This option allows for a scheduled review of all expiring certificates in ACM. The workflow includes:
-https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/05/02/Monitor-expirations-ACM-2.png
+![alt text](https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/05/02/Monitor-expirations-ACM-2.png)
 1. CloudWatch runs the rule on a timer and invokes the Lambda function.
 2. The function identifies all certificates with a DaysToExpiry metric.
 3. All expiring certificates are logged as findings in Security Hub.
