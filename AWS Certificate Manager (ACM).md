@@ -64,3 +64,4 @@ This structured approach ensures timely alerts and facilitates effective managem
 [How it Works](https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/)
 [ACM Cheat Sheet](https://tutorialsdojo.com/aws-certificate-manager/)
 [How to monitor expirations of imported certificates](https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/)
+[DaysToExpiry - CloudWatch metric](https://docs.aws.amazon.com/acm/latest/userguide/cloudwatch-metrics.html)
