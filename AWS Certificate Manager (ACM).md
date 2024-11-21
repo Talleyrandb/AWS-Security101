@@ -59,8 +59,8 @@ This structured approach ensures timely alerts and facilitates effective managem
 
 [ACM](https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn)
 [ACM Overview](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html)
-[ACM](https://aws.amazon.com/certificate-manager/?nc1=h_ls)
+[What is ACM](https://aws.amazon.com/certificate-manager/?nc1=h_ls)
 [ACM User guide](https://docs.aws.amazon.com/acm/latest/userguide/gs.html)
-[title](https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/)
-[title](https://tutorialsdojo.com/aws-certificate-manager/)
-[title](https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/)
+[How it Works](https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/)
+[ACM Cheat Sheet](https://tutorialsdojo.com/aws-certificate-manager/)
+[How to monitor expirations of imported certificates](https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/)
