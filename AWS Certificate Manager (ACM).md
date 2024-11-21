@@ -57,11 +57,11 @@ This option allows for a scheduled review of all expiring certificates in ACM. T
 5. SNS sends out notifications to subscribers.
 This structured approach ensures timely alerts and facilitates effective management of SSL certificate renewals.
 
-- https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn
-- https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
-- https://aws.amazon.com/certificate-manager/?nc1=h_ls
-- https://docs.aws.amazon.com/acm/latest/userguide/gs.html
-- https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/
-- https://tutorialsdojo.com/aws-certificate-manager/
-- https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/
+[title](https://aws.amazon.com/certificate-manager/faqs/?loc=5&nc=sn)
+[title](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html)
+[title](https://aws.amazon.com/certificate-manager/?nc1=h_ls)
+[title](https://docs.aws.amazon.com/acm/latest/userguide/gs.html)
+[title](https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/)
+[title](https://tutorialsdojo.com/aws-certificate-manager/)
+[title](https://aws.amazon.com/es/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/)
 
