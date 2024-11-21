@@ -14,20 +14,20 @@ This feature aims to enhance security and efficiency for organizations utilizing
 ## Creating and Using VPC Endpoints
 You can create and configure VPC Endpoints using the AWS Management Console, AWS Command Line Interface (AWS CLI), AWS Tools for Windows PowerShell, and the VPC API. Let’s create one using the console! Start by opening up the VPC Dashboard and selecting the desired region. Locate the Endpoints item in the navigation bar and click on it:
 
-![Alt Text] ([Link](https://media.amazonwebservices.com/blog/2015/vpc_endpoints_menu_1.png))
+![alt text](https://media.amazonwebservices.com/blog/2015/vpc_endpoints_menu_1.png)
 
 If you have already created some VPC Endpoints, they will appear in the list:
 
-![Alt Text] ([Link](https://media.amazonwebservices.com/blog/2015/vpc_endpoints_list_1.png))
+![alt text](https://media.amazonwebservices.com/blog/2015/vpc_endpoints_list_1.png)
 
 Now click on Create Endpoint, choose the desired VPC, and customize the access policy (if you want):
-![Alt Text] ([Link](https://media.amazonwebservices.com/blog/2015/vpc_config_endpoint_5.png))
+![alt text](https://media.amazonwebservices.com/blog/2015/vpc_config_endpoint_5.png)
 The access policy on the VPC Endpoint allows you disallow requests to untrusted S3 buckets (by default a VPC Endpoint can access any S3 bucket). You can also use access policies on your S3 buckets to control access from a specific VPC or VPC Endpoint. These access policies would use the new aws:SourceVpc and aws:SourceVpce conditions 
 As you might be able to guess from the screen above, you will eventually be able to create VPC Endpoints for other AWS services!
 
 Now choose the VPC subnets that will be allowed to access the endpoint:
 
-![Alt Text] ([Link](https://media.amazonwebservices.com/blog/2015/vpc_config_endpoint_routes_2.png))
+![alt text](https://media.amazonwebservices.com/blog/2015/vpc_config_endpoint_routes_2.png)
 
 open connections using an instance’s public IP address in the affected subnets will be dropped when you create the VPC Endpoint.
 
